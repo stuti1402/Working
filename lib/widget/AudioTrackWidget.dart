@@ -60,10 +60,10 @@ class AudioTrackWidget extends StatelessWidget {
   }
 
   Widget setLeading() {
-    return new Image.asset(
+    return new Image.network(
       audioPlayerModel.audio.metas.image.path,
-      height: 50,
-      width: 50,
+      height: 57,
+      width: 57,
     );
   }
 

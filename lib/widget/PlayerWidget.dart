@@ -90,10 +90,10 @@ class PlayerWidget extends StatelessWidget {
   }
 
   Widget setLeading(AudioPlayerModel model) {
-    return new Image.asset(
+    return new Image.network(
       model.audio.metas.image.path,
-      height: 50,
-      width: 50,
+      height: 60,
+      width: 60,
     );
   }
 
@@ -183,7 +183,7 @@ class WidgetDetailMusicPlayer extends StatelessWidget {
                 SizedBox(height: 16.0),
                 WidgetProgressMusic(),
                 SizedBox(height: 16.0),
-                _buildWidgetPlayerController(),
+                WidgetPlayerController(),
                 SizedBox(height: 16.0),
                 SizedBox(height: paddingBottom > 0 ? paddingBottom : 16.0),
               ],
@@ -195,38 +195,46 @@ class WidgetDetailMusicPlayer extends StatelessWidget {
   }
 }
 
-Widget _buildWidgetPlayerController() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: <Widget>[
-      GestureDetector(
-          child: Icon(Icons.skip_previous, color: Colors.white, size: 32.0),
-          behavior: HitTestBehavior.translucent,
-          onTap: () {
-            // changeTrack(false);
-          }),
-      SizedBox(width: 36.0),
-      Container(
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.blueGrey[800],
+class WidgetPlayerController extends StatefulWidget {
+  @override
+  _WidgetPlayerController createState() => _WidgetPlayerController();
+}
+
+class _WidgetPlayerController extends State<WidgetPlayerController> {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        GestureDetector(
+            child: Icon(Icons.skip_previous, color: Colors.white, size: 32.0),
+            behavior: HitTestBehavior.translucent,
+            onTap: () {
+              //changeTrack(false);
+            }),
+        SizedBox(width: 36.0),
+        Container(
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.blueGrey[800],
+          ),
+          padding: EdgeInsets.all(16.0),
+          child: BlocBuilder<AudioPlayerBloc, AudioPlayerState>(
+            builder: (context, state) {
+              bool isPlaying = true;
+              if (state is AudioPlayerPaused) {
+                isPlaying = false;
+              }
+              return Icon(isPlaying ? Icons.pause : Icons.play_arrow,
+                  color: Colors.white, size: 32.0);
+            },
+          ),
         ),
-        padding: EdgeInsets.all(16.0),
-        child: BlocBuilder<AudioPlayerBloc, AudioPlayerState>(
-          builder: (context, state) {
-            bool isPlaying = true;
-            if (state is AudioPlayerPaused) {
-              isPlaying = false;
-            }
-            return Icon(isPlaying ? Icons.pause : Icons.play_arrow,
-                color: Colors.white, size: 32.0);
-          },
-        ),
-      ),
-      SizedBox(width: 36.0),
-      Icon(Icons.skip_next, color: Colors.white, size: 32.0),
-    ],
-  );
+        SizedBox(width: 36.0),
+        Icon(Icons.skip_next, color: Colors.white, size: 32.0),
+      ],
+    );
+  }
 }
 
 class WidgetDetailTitleMusic extends StatefulWidget {
@@ -235,7 +243,7 @@ class WidgetDetailTitleMusic extends StatefulWidget {
 }
 
 class _WidgetDetailTitleMusicState extends State<WidgetDetailTitleMusic> {
-  bool _isRepeatOne = false;
+  bool _isRepeatOne = true;
 
   @override
   Widget build(BuildContext context) {

@@ -35,8 +35,8 @@ class _OpenState extends State<Open> {
 
 class CustomAppbar extends StatelessWidget {
   final locales = [
-    {'name': 'English', 'locale': Locale('en', 'US')},
-    {'name': 'Hindi', 'locale': Locale('hi', 'IN')}
+    {'name': '🇺🇸     English', 'locale': Locale('en', 'US')},
+    {'name': '🇮🇳     हिंदी', 'locale': Locale('hi', 'IN')}
   ];
 
   @override
@@ -166,6 +166,7 @@ class CustomBody extends StatelessWidget {
         Column(
           children: [
             Section(
+
               headline: "Cogitation",
               description: "Unveiling the inner 'You'",
               img: AssetImage("assets/dayd5.jpg"),
@@ -174,6 +175,16 @@ class CustomBody extends StatelessWidget {
               headline: 'Sensations',
               description: 'feel the moment',
               img: AssetImage('assets/sensation.jpg'),
+
+              headline: 'head1'.tr,
+              description: 'desc1'.tr,
+              img: AssetImage("assets/dessert.jpg"),
+            ),
+            Section(
+              headline: 'head3'.tr,
+              description: 'desc3'.tr,
+              img: AssetImage('assets/gala.jpg'),
+
             ),
           ],
         ),
@@ -181,9 +192,15 @@ class CustomBody extends StatelessWidget {
           child: ClipPath(
             clipper: MidClipper(),
             child: Section(
+
               headline: 'Daydream',
               description: 'go beyond the form',
               img: AssetImage('assets/daydr1.jpg'),
+
+              headline: 'head2'.tr,
+              description: 'desc2'.tr,
+              img: AssetImage('assets/lo.jpg'),
+
             ),
           ),
         ),
@@ -305,7 +322,7 @@ class _NavbarState extends State<NavBar> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                "Focus",
+                'nav1'.tr,
                 style: TextStyle(
                   color: const Color.fromRGBO(74, 48, 109,1.0),
                   fontWeight: FontWeight.w500,
@@ -315,7 +332,7 @@ class _NavbarState extends State<NavBar> {
                 width: 1.0,
               ),
               Text(
-                "Relax",
+                'nav2'.tr,
                 style: TextStyle(
                   color: const Color.fromRGBO(74, 48, 109,1.0),
                   fontWeight: FontWeight.w500,
@@ -325,7 +342,7 @@ class _NavbarState extends State<NavBar> {
                 width: 1.0,
               ),
               Text(
-                "Sleep",
+                'nav3'.tr,
                 style: TextStyle(
                   color: const Color.fromRGBO(74, 48, 109,1.0),
                   fontWeight: FontWeight.w500,
