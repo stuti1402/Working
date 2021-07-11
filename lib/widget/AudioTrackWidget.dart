@@ -31,8 +31,8 @@ class AudioTrackWidget extends StatelessWidget {
         ),
         child: ListTile(
           leading: setLeading(),
-          horizontalTitleGap: 15.0,
-          minVerticalPadding: 7,
+          //horizontalTitleGap: 15.0,
+          //minVerticalPadding: 7,
           title: setTitle(),
           subtitle: setSubtitle(),
           trailing: IconButton(
