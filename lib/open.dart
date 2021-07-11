@@ -168,12 +168,12 @@ class CustomBody extends StatelessWidget {
             Section(
               headline: "Cogitation",
               description: "Unveiling the inner 'You'",
-              img: AssetImage("assets/dessert.jpg"),
+              img: AssetImage("assets/dayd5.jpg"),
             ),
             Section(
               headline: 'Sensations',
               description: 'feel the moment',
-              img: AssetImage('assets/gala.jpg'),
+              img: AssetImage('assets/sensation.jpg'),
             ),
           ],
         ),
@@ -183,7 +183,7 @@ class CustomBody extends StatelessWidget {
             child: Section(
               headline: 'Daydream',
               description: 'go beyond the form',
-              img: AssetImage('assets/lo.jpg'),
+              img: AssetImage('assets/daydr1.jpg'),
             ),
           ),
         ),
@@ -267,7 +267,7 @@ class _NavbarState extends State<NavBar> {
             child: Container(
               height: 60.0,
               width: MediaQuery.of(context).size.width,
-              color: Color(0xff1e1e1e),
+              color: Colors.white,
             ),
           ),
         ),
@@ -307,7 +307,7 @@ class _NavbarState extends State<NavBar> {
               Text(
                 "Focus",
                 style: TextStyle(
-                  color: Colors.white70,
+                  color: const Color.fromRGBO(74, 48, 109,1.0),
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -317,7 +317,7 @@ class _NavbarState extends State<NavBar> {
               Text(
                 "Relax",
                 style: TextStyle(
-                  color: Colors.white70,
+                  color: const Color.fromRGBO(74, 48, 109,1.0),
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -327,7 +327,7 @@ class _NavbarState extends State<NavBar> {
               Text(
                 "Sleep",
                 style: TextStyle(
-                  color: Colors.white70,
+                  color: const Color.fromRGBO(74, 48, 109,1.0),
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -366,10 +366,10 @@ class NavOne extends StatelessWidget {
                   scale: animation,
                   child: child,
                 );
-              },
-              pageBuilder: (context, animation, animationTime) {
+              },pageBuilder: (context, animation, animationTime) {
                 return Focuses();
               }),
+             
         );
       },
       child: CircleAvatar(
@@ -380,7 +380,7 @@ class NavOne extends StatelessWidget {
           backgroundColor: active ? Colors.grey.shade100 : Colors.transparent,
           child: Icon(
             icon,
-            color: active ? Colors.black87 : Colors.white,
+            color: active ? const Color.fromRGBO(74, 48, 109,1.0) : Colors.white,
           ),
         ),
       ),
@@ -429,7 +429,7 @@ class NavTwo extends StatelessWidget {
           backgroundColor: active ? Colors.grey.shade100 : Colors.transparent,
           child: Icon(
             icon,
-            color: active ? Colors.black87 : Colors.white,
+            color: active ? const Color.fromRGBO(74, 48, 109,1.0) : Colors.white,
           ),
         ),
       ),
@@ -467,7 +467,7 @@ class NavThree extends StatelessWidget {
               },
               pageBuilder: (context, animation, animationTime) {
                 return Sleep();
-              }),
+              })
         );
       },
       child: CircleAvatar(
@@ -478,7 +478,7 @@ class NavThree extends StatelessWidget {
           backgroundColor: active ? Colors.grey.shade100 : Colors.transparent,
           child: Icon(
             icon,
-            color: active ? Colors.black87 : Colors.white,
+            color: active ? const Color.fromRGBO(74, 48, 109,1.0) : Colors.white,
           ),
         ),
       ),

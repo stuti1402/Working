@@ -1,22 +1,137 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_meditation/colorsfile.dart';
-import 'package:flutter_meditation/focus/models/course.dart';
-import 'package:flutter_meditation/focus/models/data.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'package:scroll_snap_list/scroll_snap_list.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+
+
+import '../../colorsfile.dart';
+
 
 class Courses extends StatefulWidget {
   @override
   _CoursesState createState() => _CoursesState();
+ 
 }
 
 class _CoursesState extends State<Courses> {
-  Widget _buildCourses(BuildContext context, int index) {
-    Size size = MediaQuery.of(context).size;
-    Course course = courses[index];
+  List a = [
+     'assets/bhuj.png',
+     'assets/dhan.png',
+     'assets/mayur.png',
+     'assets/vira.png',
+  ];
+   List data = [
+    'Bhujangasana',
+     'Dhanurasana',
+    'Mayurasana',
+    'Dhanurasana',
 
+  ];
+
+  
+  dis(String text, String txt)
+  {
+     return Expanded(
+        child: Column( 
+          children: [
+  Padding(
+            padding:
+                const EdgeInsets.only(left: 10, right: 20, top: 0, bottom: 10),
+            child:  Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+               
+                 InkWell(
+                  onTap: () {
+                    setState(() {
+                      const url = 'https://www.youtube.com/watch?v=eNjdNJ8PRbk';
+                      launchURL(url);
+                    });
+                  },
+                  child:Text(
+                  '$text',
+                  style:GoogleFonts.playfairDisplay(
+                  
+                    fontSize: 20,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 1,
+                  
+                ),),),
+                 InkWell(
+                  onTap: () {
+                    setState(() {
+                      const url = 'https://www.youtube.com/watch?v=eNjdNJ8PRbk';
+                      launchURL(url);
+                    });
+                  },
+                  child: Text(
+                    '$txt',
+                    style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w800,
+                        color: primary),
+                  ),
+                )]),),
+                
+            Expanded(
+              
+             child:ScrollSnapList(
+                    itemBuilder: _buildItemList,
+                    itemSize: 150,
+                  dynamicItemSize: true,
+                  onReachEnd: (){
+                      print('Done!');
+                  },
+                  itemCount: a.length, onItemFocus: (int ) {  },
+                )),]));
+  }
+  Widget _buildItemList(BuildContext context, int index,){
+    if(index == a.length)
+      return Center(
+        child: CircularProgressIndicator(),
+      );
+    return Container(
+      width: 150,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(height: 120, width: 130,
+            child:Card(
+        
+            color: Colors.white,
+          
+            child:
+            Column(children:[
+          Center(
+          child: Container(
+            
+            child: Image(
+              width: 70,
+              height: 80,
+              image: AssetImage('${a[index]}'),
+            ),
+          ),
+        ),
+        Row(
+        children:[
+          Container(margin: const EdgeInsets.only(top:10, left: 12), 
+        child:  InkWell(
+                             onTap: _launchURL,      
+           child:Text('${data[index]}',
+           style:GoogleFonts.roboto (fontSize: 15.0,color: Colors.black,),),
+       
+            ))])]
+          ),)
+           ) ],
+      ),
+    );
+  }
+   
     _launchURL() async {
-      var url = course.corurl;
+      var url = 'https://www.youtube.com/watch?v=EIqsDkpzOgo';
       if (await canLaunch(url)) {
         await launch(url);
       } else {
@@ -24,7 +139,7 @@ class _CoursesState extends State<Courses> {
       }
     }
 
-    return SafeArea(
+   /* return SafeArea(
         child: Padding(
       padding: const EdgeInsets.only(top: 5, bottom: 10, left: 20, right: 20),
       child: Container(
@@ -76,9 +191,9 @@ class _CoursesState extends State<Courses> {
                         children: [
                           Container(
                             child: InkWell(
-                              onTap: _launchURL,
+                             // onTap: _launchURL,
                               child: Icon(
-                                Icons.all_inclusive_rounded,
+                                Icons.all_inclusive,
                                 color: Colors.blue,
                               ),
                             ),
@@ -101,7 +216,7 @@ class _CoursesState extends State<Courses> {
                       Row(
                         children: [
                           Icon(
-                            Icons.access_time_outlined,
+                            Icons.access_time,
                             color: black.withOpacity(0.4),
                           ),
                           SizedBox(
@@ -124,64 +239,24 @@ class _CoursesState extends State<Courses> {
         ),
       ),
     ));
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding:
-                const EdgeInsets.only(left: 20, right: 20, top: 0, bottom: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Routine Yoga',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w800,
-                    letterSpacing: 1,
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    setState(() {
-                      const url = 'https://www.youtube.com/watch?v=eNjdNJ8PRbk';
-                      launchURL(url);
-                    });
-                  },
-                  child: Text(
-                    'Know More',
-                    style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w800,
-                        color: primary),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Column(
-            children: [
-              SafeArea(
-                child: SizedBox(
-                  height: 290,
-                  child: ListView.builder(
-                    physics: BouncingScrollPhysics(),
-                    itemCount: courses.length,
-                    itemBuilder: (context, index) {
-                      return _buildCourses(context, index);
-                    },
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
+       return Expanded(
+     
+        
+     
+          child:Column( 
+          children: [
+         
+            dis('Asanas for Asthma', 'Know More'),
+             dis('Asanas for Fatigue', 'Know More'),
+             dis('Asanas for weight loss', 'Know More'),
+              
+        
+          ],
+     )
     );
   }
 }

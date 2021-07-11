@@ -74,7 +74,7 @@ class _StylesState extends State<Styles> {
                       Row(
                         children: [
                           Icon(
-                            Icons.access_time_outlined,
+                            Icons.access_time,
                             color: black.withOpacity(0.3),
                           ),
                           SizedBox(

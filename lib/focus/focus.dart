@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_meditation/focus/widget/courses.dart';
-import 'package:flutter_meditation/focus/widget/styles.dart';
-import 'package:flutter_meditation/sleep/sleep.dart';
 
-import '../colorsfile.dart';
+
 import '../open.dart';
 import '../sidebar.dart';
+import 'widget/courses.dart';
+import 'widget/styles.dart';
+
 
 class Focuses extends StatefulWidget {
   @override
@@ -18,13 +18,14 @@ class _FocusesState extends State<Focuses> {
     return Scaffold(
       backgroundColor: Colors.white,
       extendBody: true,
-      body: Stack(
+       body: Stack(
+      
         children: [
           AAA(),
           NavBar(),
           SideBar(),
         ],
-      ),
+      )
     );
   }
 }
@@ -37,16 +38,22 @@ class AAA extends StatefulWidget {
 class _AAAState extends State<AAA> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Container(
+          decoration: BoxDecoration(
+         image: DecorationImage(
+         image: AssetImage("assets/bgimg-01.png"), fit: BoxFit.cover)),
+         child: Scaffold(
+         backgroundColor: Colors.transparent,
+         
       body: Padding(
-        padding: EdgeInsets.only(top: appPadding * 1),
+        padding: EdgeInsets.only(top: 10),
         child: Column(
           children: [
             Styles(),
             Courses(),
           ],
         ),
-      ),
+      ),)
     );
   }
 }
@@ -68,7 +75,7 @@ class _NavbarState extends State<NavBar> {
             child: Container(
               height: 60.0,
               width: MediaQuery.of(context).size.width,
-              color: Color(0xff1e1e1e),
+              color: Colors.white,
             ),
           ),
         ),
@@ -108,7 +115,7 @@ class _NavbarState extends State<NavBar> {
               Text(
                 "Focus",
                 style: TextStyle(
-                  color: Colors.white70,
+                  color: const Color.fromRGBO(74, 48, 109,1.0),
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -118,7 +125,7 @@ class _NavbarState extends State<NavBar> {
               Text(
                 "Relax",
                 style: TextStyle(
-                  color: Colors.white70,
+                 color: const Color.fromRGBO(74, 48, 109,1.0),
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -128,7 +135,7 @@ class _NavbarState extends State<NavBar> {
               Text(
                 "Sleep",
                 style: TextStyle(
-                  color: Colors.white70,
+                  color: const Color.fromRGBO(74, 48, 109,1.0),
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -156,20 +163,9 @@ class NavOne extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          PageRouteBuilder(
-              transitionDuration: Duration(seconds: 1),
-              transitionsBuilder: (context, animation, animationTime, child) {
-                animation = CurvedAnimation(
-                    parent: animation, curve: Curves.elasticOut);
-                return ScaleTransition(
-                  alignment: Alignment.bottomLeft,
-                  scale: animation,
-                  child: child,
-                );
-              },
-              pageBuilder: (context, animation, animationTime) {
-                return Focuses();
-              }),
+          MaterialPageRoute(
+            builder: (context) => Focuses(),
+          ),
         );
       },
       child: CircleAvatar(
@@ -180,7 +176,7 @@ class NavOne extends StatelessWidget {
           backgroundColor: active ? Colors.grey.shade100 : Colors.transparent,
           child: Icon(
             icon,
-            color: active ? Colors.black87 : Colors.white,
+            color: active ? const Color.fromRGBO(74, 48, 109,1.0) : Colors.white,
           ),
         ),
       ),
@@ -204,20 +200,9 @@ class NavTwo extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          PageRouteBuilder(
-              transitionDuration: Duration(seconds: 1),
-              transitionsBuilder: (context, animation, animationTime, child) {
-                animation = CurvedAnimation(
-                    parent: animation, curve: Curves.elasticOut);
-                return ScaleTransition(
-                  alignment: Alignment.bottomCenter,
-                  scale: animation,
-                  child: child,
-                );
-              },
-              pageBuilder: (context, animation, animationTime) {
-                return Open();
-              }),
+          MaterialPageRoute(
+            builder: (context) => Open(),
+          ),
         );
       },
       child: CircleAvatar(
@@ -228,7 +213,7 @@ class NavTwo extends StatelessWidget {
           backgroundColor: active ? Colors.grey.shade100 : Colors.transparent,
           child: Icon(
             icon,
-            color: active ? Colors.black87 : Colors.white,
+            color: active ? const Color.fromRGBO(74, 48, 109,1.0) : Colors.white,
           ),
         ),
       ),
@@ -250,23 +235,12 @@ class NavThree extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(
+       /* Navigator.push(
           context,
-          PageRouteBuilder(
-              transitionDuration: Duration(seconds: 1),
-              transitionsBuilder: (context, animation, animationTime, child) {
-                animation = CurvedAnimation(
-                    parent: animation, curve: Curves.elasticOut);
-                return ScaleTransition(
-                  alignment: Alignment.bottomRight,
-                  scale: animation,
-                  child: child,
-                );
-              },
-              pageBuilder: (context, animation, animationTime) {
-                return Sleep();
-              }),
-        );
+          MaterialPageRoute(
+            builder: (context) => Sleep(),
+          ),
+        );*/
       },
       child: CircleAvatar(
         radius: 25.0,
@@ -276,7 +250,7 @@ class NavThree extends StatelessWidget {
           backgroundColor: active ? Colors.grey.shade100 : Colors.transparent,
           child: Icon(
             icon,
-            color: active ? Colors.black87 : Colors.white,
+            color: active ? const Color.fromRGBO(74, 48, 109,1.0) : Colors.white,
           ),
         ),
       ),
