@@ -9,6 +9,9 @@ class CalmUTranslations extends Translations {
           'head1': 'Cogitation',
           'desc1': 'Unveiling the inner "You"',
         },
-        'hi_IN': {'title': 'काल्मयू', 'lang': 'अपनी भाषा चुनिए'},
+        'hi_IN': {
+          'title': 'काल्मयू',
+          'lang': 'अपनी भाषा चुनिए',
+        },
       };
 }

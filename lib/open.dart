@@ -35,8 +35,8 @@ class _OpenState extends State<Open> {
 
 class CustomAppbar extends StatelessWidget {
   final locales = [
-    {'name': 'English', 'locale': Locale('en', 'US')},
-    {'name': 'Hindi', 'locale': Locale('hi', 'IN')}
+    {'name': '🇺🇸     English', 'locale': Locale('en', 'US')},
+    {'name': '🇮🇳     हिंदी', 'locale': Locale('hi', 'IN')}
   ];
 
   @override
