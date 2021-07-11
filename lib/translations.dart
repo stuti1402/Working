@@ -12,6 +12,9 @@ class CalmUTranslations extends Translations {
           'desc2': 'Healing the Soul',
           'head3': 'Absorption',
           'desc3': 'Go beyond your Limits',
+          'nav1': 'Yoga',
+          'nav2': 'Relax',
+          'nav3': 'Meditate',
         },
         'hi_IN': {
           'title': 'काल्मयू',
@@ -22,6 +25,9 @@ class CalmUTranslations extends Translations {
           'desc2': 'आत्मा का उपचार',
           'head3': 'अवशोषण',
           'desc3': 'अपनी सीमा से परे जाओ',
+          'nav1': 'योग',
+          'nav2': 'आराम',
+          'nav3': 'ध्यान',
         },
       };
 }

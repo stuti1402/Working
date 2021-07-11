@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_meditation/focus/widget/courses.dart';
 import 'package:flutter_meditation/focus/widget/styles.dart';
 import 'package:flutter_meditation/sleep/sleep.dart';
+import 'package:get/get.dart';
 
 import '../colorsfile.dart';
 import '../open.dart';
@@ -106,7 +107,7 @@ class _NavbarState extends State<NavBar> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                "Focus",
+                'nav1'.tr,
                 style: TextStyle(
                   color: Colors.white70,
                   fontWeight: FontWeight.w500,
@@ -116,7 +117,7 @@ class _NavbarState extends State<NavBar> {
                 width: 1.0,
               ),
               Text(
-                "Relax",
+                'nav2'.tr,
                 style: TextStyle(
                   color: Colors.white70,
                   fontWeight: FontWeight.w500,
@@ -126,7 +127,7 @@ class _NavbarState extends State<NavBar> {
                 width: 1.0,
               ),
               Text(
-                "Sleep",
+                'nav3'.tr,
                 style: TextStyle(
                   color: Colors.white70,
                   fontWeight: FontWeight.w500,
