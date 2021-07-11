@@ -8,10 +8,20 @@ class CalmUTranslations extends Translations {
           'lang': 'Choose your language',
           'head1': 'Cogitation',
           'desc1': 'Unveiling the inner "You"',
+          'head2': 'Perception',
+          'desc2': 'Healing the Soul',
+          'head3': 'Absorption',
+          'desc3': 'Go beyond your Limits',
         },
         'hi_IN': {
           'title': 'काल्मयू',
           'lang': 'अपनी भाषा चुनिए',
+          'head1': 'ऊहापोह',
+          'desc1': 'आंतरिक "आप" का अनावरण',
+          'head2': 'अनुभूति',
+          'desc2': 'आत्मा का उपचार',
+          'head3': 'अवशोषण',
+          'desc3': 'अपनी सीमा से परे जाओ',
         },
       };
 }

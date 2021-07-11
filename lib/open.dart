@@ -166,13 +166,13 @@ class CustomBody extends StatelessWidget {
         Column(
           children: [
             Section(
-              headline: "Cogitation",
-              description: "Unveiling the inner 'You'",
+              headline: 'head1'.tr,
+              description: 'desc1'.tr,
               img: AssetImage("assets/dessert.jpg"),
             ),
             Section(
-              headline: 'Sensations',
-              description: 'feel the moment',
+              headline: 'head3'.tr,
+              description: 'desc3'.tr,
               img: AssetImage('assets/gala.jpg'),
             ),
           ],
@@ -181,8 +181,8 @@ class CustomBody extends StatelessWidget {
           child: ClipPath(
             clipper: MidClipper(),
             child: Section(
-              headline: 'Daydream',
-              description: 'go beyond the form',
+              headline: 'head2'.tr,
+              description: 'desc2'.tr,
               img: AssetImage('assets/lo.jpg'),
             ),
           ),
