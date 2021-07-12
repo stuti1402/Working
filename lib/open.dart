@@ -372,10 +372,10 @@ class NavOne extends StatelessWidget {
         backgroundColor: Colors.purple,
         child: CircleAvatar(
           radius: 25.0,
-          backgroundColor: active ? Colors.transparent : Colors.grey.shade100,
+          backgroundColor: active ? Colors.transparent : Colors.purple.shade50,
           child: Icon(
             icon,
-            color: active ? Colors.white : Colors.purple,
+            color: active ? Colors.purple.shade50 : Colors.purple,
           ),
         ),
       ),
@@ -421,10 +421,10 @@ class NavTwo extends StatelessWidget {
         backgroundColor: Colors.purple,
         child: CircleAvatar(
           radius: 25.0,
-          backgroundColor: active ? Colors.transparent : Colors.grey.shade100,
+          backgroundColor: active ? Colors.transparent : Colors.purple.shade50,
           child: Icon(
             icon,
-            color: active ? Colors.white : Colors.purple,
+            color: active ? Colors.purple.shade50 : Colors.purple,
           ),
         ),
       ),
@@ -469,10 +469,10 @@ class NavThree extends StatelessWidget {
         backgroundColor: Colors.purple,
         child: CircleAvatar(
           radius: 25.0,
-          backgroundColor: active ? Colors.transparent : Colors.grey.shade100,
+          backgroundColor: active ? Colors.transparent : Colors.purple.shade50,
           child: Icon(
             icon,
-            color: active ? Colors.white : Colors.purple,
+            color: active ? Colors.purple.shade50 : Colors.purple,
           ),
         ),
       ),
