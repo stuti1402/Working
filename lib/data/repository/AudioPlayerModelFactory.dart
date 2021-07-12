@@ -96,13 +96,15 @@ class AudioPlayerModelFactory {
       AudioPlayerModel(
           id: "8",
           isPlaying: false,
-          audio: Audio("",
+          audio: Audio.network(
+              "https://drive.google.com/uc?export=view&id=1yzPWqLPmxtvjPFoJnEUiuXT2YLV7lz6S",
               metas: Metas(
                 id: "8",
-                title: "My Other Country Song",
-                artist: "Joe Doe",
+                title: "Buddy",
+                artist: "Bensound",
                 album: "Country Album",
-                image: MetasImage.asset(""),
+                image: MetasImage.network(
+                    "https://www.bensound.com/bensound-img/buddy.jpg"),
               ))),
     ];
   }

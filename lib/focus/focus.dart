@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_meditation/focus/widget/courses.dart';
 import 'package:flutter_meditation/focus/widget/styles.dart';
 import 'package:flutter_meditation/sleep/sleep.dart';
 import 'package:get/get.dart';
 
-
-
 import '../open.dart';
 import '../sidebar.dart';
 import 'widget/courses.dart';
 import 'widget/styles.dart';
-
 
 class Focuses extends StatefulWidget {
   @override
@@ -22,17 +18,15 @@ class _FocusesState extends State<Focuses> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      extendBody: true,
-       body: Stack(
-      
-        children: [
-          AAA(),
-          NavBar(),
-          SideBar(),
-        ],
-      )
-    );
+        backgroundColor: Colors.white,
+        extendBody: true,
+        body: Stack(
+          children: [
+            AAA(),
+            NavBar(),
+            SideBar(),
+          ],
+        ));
   }
 }
 
@@ -45,22 +39,21 @@ class _AAAState extends State<AAA> {
   @override
   Widget build(BuildContext context) {
     return Container(
-          decoration: BoxDecoration(
-         image: DecorationImage(
-         image: AssetImage("assets/bgimg-01.png"), fit: BoxFit.cover)),
-         child: Scaffold(
-         backgroundColor: Colors.transparent,
-         
-      body: Padding(
-        padding: EdgeInsets.only(top: 10),
-        child: Column(
-          children: [
-            Styles(),
-            Courses(),
-          ],
-        ),
-      ),)
-    );
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/final.png"), fit: BoxFit.cover)),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Padding(
+            padding: EdgeInsets.only(top: 10),
+            child: Column(
+              children: [
+                Styles(),
+                Courses(),
+              ],
+            ),
+          ),
+        ));
   }
 }
 
@@ -121,7 +114,7 @@ class _NavbarState extends State<NavBar> {
               Text(
                 'nav1'.tr,
                 style: TextStyle(
-                  color: const Color.fromRGBO(74, 48, 109,1.0),
+                  color: const Color.fromRGBO(74, 48, 109, 1.0),
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -131,7 +124,7 @@ class _NavbarState extends State<NavBar> {
               Text(
                 'nav2'.tr,
                 style: TextStyle(
-                 color: const Color.fromRGBO(74, 48, 109,1.0),
+                  color: const Color.fromRGBO(74, 48, 109, 1.0),
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -141,7 +134,7 @@ class _NavbarState extends State<NavBar> {
               Text(
                 'nav3'.tr,
                 style: TextStyle(
-                  color: const Color.fromRGBO(74, 48, 109,1.0),
+                  color: const Color.fromRGBO(74, 48, 109, 1.0),
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -167,12 +160,23 @@ class NavOne extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        Navigator.pop(context);
         Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => Focuses(),
-          ),
-        );
+            context,
+            PageRouteBuilder(
+                transitionDuration: Duration(seconds: 1),
+                transitionsBuilder: (context, animation, animationTime, child) {
+                  animation = CurvedAnimation(
+                      parent: animation, curve: Curves.elasticOut);
+                  return ScaleTransition(
+                    alignment: Alignment.bottomLeft,
+                    scale: animation,
+                    child: child,
+                  );
+                },
+                pageBuilder: (context, animation, animationTime) {
+                  return Focuses();
+                }));
       },
       child: CircleAvatar(
         radius: 25.0,
@@ -182,7 +186,8 @@ class NavOne extends StatelessWidget {
           backgroundColor: active ? Colors.grey.shade100 : Colors.transparent,
           child: Icon(
             icon,
-            color: active ? const Color.fromRGBO(74, 48, 109,1.0) : Colors.white,
+            color:
+                active ? const Color.fromRGBO(74, 48, 109, 1.0) : Colors.white,
           ),
         ),
       ),
@@ -204,12 +209,23 @@ class NavTwo extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        Navigator.pop(context);
         Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => Open(),
-          ),
-        );
+            context,
+            PageRouteBuilder(
+                transitionDuration: Duration(seconds: 1),
+                transitionsBuilder: (context, animation, animationTime, child) {
+                  animation = CurvedAnimation(
+                      parent: animation, curve: Curves.elasticOut);
+                  return ScaleTransition(
+                    alignment: Alignment.bottomCenter,
+                    scale: animation,
+                    child: child,
+                  );
+                },
+                pageBuilder: (context, animation, animationTime) {
+                  return Open();
+                }));
       },
       child: CircleAvatar(
         radius: 25.0,
@@ -219,7 +235,8 @@ class NavTwo extends StatelessWidget {
           backgroundColor: active ? Colors.grey.shade100 : Colors.transparent,
           child: Icon(
             icon,
-            color: active ? const Color.fromRGBO(74, 48, 109,1.0) : Colors.white,
+            color:
+                active ? const Color.fromRGBO(74, 48, 109, 1.0) : Colors.white,
           ),
         ),
       ),
@@ -241,12 +258,23 @@ class NavThree extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-       /* Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => Sleep(),
-          ),
-        );*/
+        Navigator.pop(context);
+        Navigator.push(
+            context,
+            PageRouteBuilder(
+                transitionDuration: Duration(seconds: 1),
+                transitionsBuilder: (context, animation, animationTime, child) {
+                  animation = CurvedAnimation(
+                      parent: animation, curve: Curves.elasticOut);
+                  return ScaleTransition(
+                    alignment: Alignment.bottomRight,
+                    scale: animation,
+                    child: child,
+                  );
+                },
+                pageBuilder: (context, animation, animationTime) {
+                  return Sleep();
+                }));
       },
       child: CircleAvatar(
         radius: 25.0,
@@ -256,7 +284,8 @@ class NavThree extends StatelessWidget {
           backgroundColor: active ? Colors.grey.shade100 : Colors.transparent,
           child: Icon(
             icon,
-            color: active ? const Color.fromRGBO(74, 48, 109,1.0) : Colors.white,
+            color:
+                active ? const Color.fromRGBO(74, 48, 109, 1.0) : Colors.white,
           ),
         ),
       ),

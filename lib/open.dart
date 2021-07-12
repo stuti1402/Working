@@ -44,16 +44,6 @@ class CustomAppbar extends StatelessWidget {
     return SafeArea(
       child: Container(
         height: 105.0,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Colors.white,
-              Colors.transparent,
-            ],
-          ),
-        ),
         child: Stack(
           children: [
             ClipPath(
@@ -61,7 +51,7 @@ class CustomAppbar extends StatelessWidget {
               child: Container(
                 height: 50.0,
                 width: MediaQuery.of(context).size.width,
-                color: Color(0xff998470),
+                color: Colors.purple.shade50,
               ),
             ),
             Positioned(
@@ -76,23 +66,9 @@ class CustomAppbar extends StatelessWidget {
                   ),
                   CircleAvatar(
                     radius: 23.0,
-                    backgroundImage: AssetImage("assets/face.jpg"),
+                    backgroundImage: AssetImage("assets/calmu1.png"),
                   ),
                 ],
-              ),
-            ),
-            Positioned(
-              top: 70.0,
-              left: MediaQuery.of(context).size.width / 2 - 10,
-              child: CircleAvatar(
-                radius: 10.0,
-                backgroundColor: Colors.white,
-                child: FittedBox(
-                  child: Icon(
-                    Icons.add,
-                    color: Colors.black54,
-                  ),
-                ),
               ),
             ),
             Padding(
@@ -103,14 +79,14 @@ class CustomAppbar extends StatelessWidget {
                   Text(
                     'title'.tr,
                     style: TextStyle(
-                        color: Colors.black87,
+                        color: Colors.purple,
                         fontSize: 20,
                         fontWeight: FontWeight.w800),
                   ),
                   IconButton(
                     icon: Icon(
                       Icons.translate,
-                      color: Colors.black87,
+                      color: Colors.purple,
                     ),
                     onPressed: () => showLocaleDialog(context),
                   ),
@@ -127,14 +103,27 @@ class CustomAppbar extends StatelessWidget {
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        title: Text('lang'.tr),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(13),
+        ),
+        title: Text(
+          'lang'.tr,
+          style: TextStyle(
+            color: Colors.purple,
+          ),
+        ),
         content: Container(
           width: double.maxFinite,
           child: ListView.separated(
             shrinkWrap: true,
             itemBuilder: (context, index) => InkWell(
               child: Padding(
-                child: Text(locales[index]['name']),
+                child: Text(
+                  locales[index]['name'],
+                  style: TextStyle(
+                    color: Colors.purple,
+                  ),
+                ),
                 padding: EdgeInsets.symmetric(vertical: 8),
               ),
               onTap: () => updateLocale(
@@ -166,25 +155,14 @@ class CustomBody extends StatelessWidget {
         Column(
           children: [
             Section(
-
-              headline: "Cogitation",
-              description: "Unveiling the inner 'You'",
-              img: AssetImage("assets/dayd5.jpg"),
-            ),
-            Section(
-              headline: 'Sensations',
-              description: 'feel the moment',
-              img: AssetImage('assets/sensation.jpg'),
-
               headline: 'head1'.tr,
               description: 'desc1'.tr,
-              img: AssetImage("assets/dessert.jpg"),
+              img: AssetImage("assets/98.jpg"),
             ),
             Section(
               headline: 'head3'.tr,
               description: 'desc3'.tr,
-              img: AssetImage('assets/gala.jpg'),
-
+              img: AssetImage('assets/ks.png'),
             ),
           ],
         ),
@@ -192,15 +170,9 @@ class CustomBody extends StatelessWidget {
           child: ClipPath(
             clipper: MidClipper(),
             child: Section(
-
-              headline: 'Daydream',
-              description: 'go beyond the form',
-              img: AssetImage('assets/daydr1.jpg'),
-
               headline: 'head2'.tr,
               description: 'desc2'.tr,
-              img: AssetImage('assets/lo.jpg'),
-
+              img: AssetImage('assets/13.jpg'),
             ),
           ),
         ),
@@ -284,7 +256,7 @@ class _NavbarState extends State<NavBar> {
             child: Container(
               height: 60.0,
               width: MediaQuery.of(context).size.width,
-              color: Colors.white,
+              color: Colors.purple.shade50,
             ),
           ),
         ),
@@ -321,32 +293,38 @@ class _NavbarState extends State<NavBar> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              SizedBox(
+                width: 20,
+              ),
               Text(
                 'nav1'.tr,
                 style: TextStyle(
-                  color: const Color.fromRGBO(74, 48, 109,1.0),
+                  color: Colors.purple,
                   fontWeight: FontWeight.w500,
                 ),
               ),
               SizedBox(
-                width: 1.0,
+                width: 60,
               ),
               Text(
                 'nav2'.tr,
                 style: TextStyle(
-                  color: const Color.fromRGBO(74, 48, 109,1.0),
+                  color: Colors.purple,
                   fontWeight: FontWeight.w500,
                 ),
               ),
               SizedBox(
-                width: 1.0,
+                width: 50,
               ),
               Text(
                 'nav3'.tr,
                 style: TextStyle(
-                  color: const Color.fromRGBO(74, 48, 109,1.0),
+                  color: Colors.purple,
                   fontWeight: FontWeight.w500,
                 ),
+              ),
+              SizedBox(
+                width: 15,
               ),
             ],
           ),
@@ -383,21 +361,21 @@ class NavOne extends StatelessWidget {
                   scale: animation,
                   child: child,
                 );
-              },pageBuilder: (context, animation, animationTime) {
+              },
+              pageBuilder: (context, animation, animationTime) {
                 return Focuses();
               }),
-             
         );
       },
       child: CircleAvatar(
         radius: 25.0,
-        backgroundColor: Color(0xff1e1e1e),
+        backgroundColor: Colors.purple,
         child: CircleAvatar(
           radius: 25.0,
-          backgroundColor: active ? Colors.grey.shade100 : Colors.transparent,
+          backgroundColor: active ? Colors.transparent : Colors.grey.shade100,
           child: Icon(
             icon,
-            color: active ? const Color.fromRGBO(74, 48, 109,1.0) : Colors.white,
+            color: active ? Colors.white : Colors.purple,
           ),
         ),
       ),
@@ -440,13 +418,13 @@ class NavTwo extends StatelessWidget {
       },
       child: CircleAvatar(
         radius: 25.0,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.purple,
         child: CircleAvatar(
           radius: 25.0,
-          backgroundColor: active ? Colors.grey.shade100 : Colors.transparent,
+          backgroundColor: active ? Colors.transparent : Colors.grey.shade100,
           child: Icon(
             icon,
-            color: active ? const Color.fromRGBO(74, 48, 109,1.0) : Colors.white,
+            color: active ? Colors.white : Colors.purple,
           ),
         ),
       ),
@@ -470,32 +448,31 @@ class NavThree extends StatelessWidget {
       onTap: () {
         Navigator.pop(context);
         Navigator.push(
-          context,
-          PageRouteBuilder(
-              transitionDuration: Duration(seconds: 1),
-              transitionsBuilder: (context, animation, animationTime, child) {
-                animation = CurvedAnimation(
-                    parent: animation, curve: Curves.elasticOut);
-                return ScaleTransition(
-                  alignment: Alignment.bottomRight,
-                  scale: animation,
-                  child: child,
-                );
-              },
-              pageBuilder: (context, animation, animationTime) {
-                return Sleep();
-              })
-        );
+            context,
+            PageRouteBuilder(
+                transitionDuration: Duration(seconds: 1),
+                transitionsBuilder: (context, animation, animationTime, child) {
+                  animation = CurvedAnimation(
+                      parent: animation, curve: Curves.elasticOut);
+                  return ScaleTransition(
+                    alignment: Alignment.bottomRight,
+                    scale: animation,
+                    child: child,
+                  );
+                },
+                pageBuilder: (context, animation, animationTime) {
+                  return Sleep();
+                }));
       },
       child: CircleAvatar(
         radius: 25.0,
-        backgroundColor: Color(0xff1e1e1e),
+        backgroundColor: Colors.purple,
         child: CircleAvatar(
           radius: 25.0,
-          backgroundColor: active ? Colors.grey.shade100 : Colors.transparent,
+          backgroundColor: active ? Colors.transparent : Colors.grey.shade100,
           child: Icon(
             icon,
-            color: active ? const Color.fromRGBO(74, 48, 109,1.0) : Colors.white,
+            color: active ? Colors.white : Colors.purple,
           ),
         ),
       ),
