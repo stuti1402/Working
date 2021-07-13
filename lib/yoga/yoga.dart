@@ -49,19 +49,19 @@ class _ScreenState extends State<Screen> {
     var imageName = '';
     var clr;
     if (timeNow <= 12) {
-      message = 'Good Morning!';
+      message = 'mrng'.tr;
       imageName = 'mrng.png';
       clr = kTextColor;
     } else if ((timeNow > 12) && (timeNow <= 16)) {
-      message = 'Good Afernoon!';
+      message = 'afternoon'.tr;
       imageName = 'afternoon.jpg';
       clr = Color(0xFF222B45);
     } else if ((timeNow > 16) && (timeNow < 20)) {
-      message = 'Good Evening!';
+      message = 'evng'.tr;
       imageName = 'evng.png';
       clr = Color(0xFFECE9F5);
     } else {
-      message = 'Good Night!';
+      message = 'night'.tr;
       imageName = 'night.png';
       clr = Color(0xFFDBD2F6);
     }
@@ -120,7 +120,7 @@ class _ScreenState extends State<Screen> {
                         horizontal: 20,
                       ),
                       child: Text(
-                        "Get back into your Yoga routine",
+                        'sub'.tr,
                         style: TextStyle(
                             fontWeight: FontWeight.w500,
                             color: clr,
@@ -143,7 +143,7 @@ class _ScreenState extends State<Screen> {
                             );
                           },
                           child: SeassionCard(
-                            seassionText: "Morning",
+                            seassionText: 'mrng1'.tr,
                             isDone: true,
                           ),
                         ),
@@ -156,7 +156,7 @@ class _ScreenState extends State<Screen> {
                             });
                           },
                           child: SeassionCard(
-                            seassionText: "Afternoon",
+                            seassionText: 'afternoon1'.tr,
                             isDone: true,
                           ),
                         ),
@@ -169,7 +169,7 @@ class _ScreenState extends State<Screen> {
                             });
                           },
                           child: SeassionCard(
-                            seassionText: "Evening",
+                            seassionText: 'evng1'.tr,
                             isDone: true,
                           ),
                         ),
@@ -182,7 +182,7 @@ class _ScreenState extends State<Screen> {
                             });
                           },
                           child: SeassionCard(
-                            seassionText: "Bedtime",
+                            seassionText: 'night1'.tr,
                             isDone: true,
                           ),
                         ),
@@ -381,7 +381,7 @@ class _Bottom extends State<Bottom> {
                                 width: size.width * 0.02,
                               ),
                               Text(
-                                course.time.toString() + ' min',
+                                course.time.toString() + ' ' + 'min'.tr,
                                 style: TextStyle(
                                   color: black.withOpacity(0.5),
                                 ),
@@ -414,7 +414,7 @@ class _Bottom extends State<Bottom> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Yoga Fitness',
+                  'label'.tr,
                   style: TextStyle(
                     fontSize: 20,
                     color: kBlueColor,
@@ -431,7 +431,7 @@ class _Bottom extends State<Bottom> {
                     });
                   },
                   child: Text(
-                    'View All',
+                    'view'.tr,
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
@@ -450,7 +450,7 @@ class _Bottom extends State<Bottom> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Plan workout that suits you',
+                  'subl'.tr,
                   style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w500,
