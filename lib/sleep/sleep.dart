@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_meditation/focus/focus.dart';
 import 'package:flutter_meditation/open.dart';
+import 'package:flutter_meditation/yoga/yoga.dart';
 import 'package:get/get.dart';
 
 import '../sidebar.dart';
@@ -149,7 +149,7 @@ class NavOne extends StatelessWidget {
                 );
               },
               pageBuilder: (context, animation, animationTime) {
-                return Focuses();
+                return Yoga();
               }),
         );
       },

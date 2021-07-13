@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_meditation/deatil.dart';
-import 'package:flutter_meditation/focus/focus.dart';
 import 'package:flutter_meditation/sidebar.dart';
 import 'package:flutter_meditation/sleep/sleep.dart';
+import 'package:flutter_meditation/yoga/yoga.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
@@ -66,7 +66,7 @@ class CustomAppbar extends StatelessWidget {
                   ),
                   CircleAvatar(
                     radius: 23.0,
-                    backgroundImage: AssetImage("assets/calmu1.png"),
+                    backgroundImage: AssetImage("assets/applogoo.png"),
                   ),
                 ],
               ),
@@ -267,21 +267,21 @@ class _NavbarState extends State<NavBar> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               NavOne(
-                icon: Icons.bubble_chart,
+                icon: Icons.device_hub_sharp,
                 active: false,
               ),
               SizedBox(
                 width: 1.0,
               ),
               NavTwo(
-                icon: Icons.landscape,
+                icon: Icons.donut_small_rounded,
                 active: true,
               ),
               SizedBox(
                 width: 1.0,
               ),
               NavThree(
-                icon: Icons.brightness_3,
+                icon: Icons.fiber_smart_record_rounded,
                 active: false,
               ),
             ],
@@ -363,7 +363,7 @@ class NavOne extends StatelessWidget {
                 );
               },
               pageBuilder: (context, animation, animationTime) {
-                return Focuses();
+                return Yoga();
               }),
         );
       },
