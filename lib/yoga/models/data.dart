@@ -1,73 +1,71 @@
-import 'package:get/get.dart';
-
 import 'course.dart';
 
 final _course1 = Course(
-  imageUrl: 'assets/course1.jpg',
-  name: 'name1'.tr,
+  imageUrl: 'assets/sn.png',
+  name: 'name1',
   time: 48,
   corurl: 'https://www.youtube.com/watch?v=EIqsDkpzOgo',
-  students: 'nam1'.tr,
+  students: 'nam1',
 );
 
 final _course2 = Course(
-  imageUrl: 'assets/course2.jpg',
-  name: 'name2'.tr,
+  imageUrl: 'assets/Diabetes.png',
+  name: 'name2',
   time: 35,
   corurl: 'https://www.youtube.com/watch?v=fmh58tykgpo',
-  students: 'nam2'.tr,
+  students: 'nam2',
 );
 
 final _course3 = Course(
-  imageUrl: 'assets/course3.jpg',
-  name: 'name3'.tr,
+  imageUrl: 'assets/breathing.png',
+  name: 'name3',
   time: 26,
   corurl: 'https://www.youtube.com/watch?v=JAOUZR3Jw3E',
-  students: 'nam3'.tr,
+  students: 'nam3',
 );
 
 final _course4 = Course(
-  imageUrl: 'assets/course3.jpg',
-  name: 'name4'.tr,
+  imageUrl: 'assets/obesity.png',
+  name: 'name4',
   time: 39,
   corurl: 'https://www.youtube.com/watch?v=Ci3na6ThUJc',
-  students: 'nam4'.tr,
+  students: 'nam4',
 );
 
 final _course5 = Course(
-    imageUrl: 'assets/course3.jpg',
-    name: 'name5'.tr,
+    imageUrl: 'assets/eyes.png',
+    name: 'name5',
     time: 22,
     corurl: 'https://www.youtube.com/watch?v=VPenA4_GBQU',
-    students: 'nam5'.tr);
+    students: 'nam5');
 
 final _course6 = Course(
-    imageUrl: 'assets/course3.jpg',
-    name: 'name6'.tr,
+    imageUrl: 'assets/skin.png',
+    name: 'name6',
     time: 11,
     corurl: 'https://www.youtube.com/watch?v=dfCvJekDuf0',
-    students: 'nam6'.tr);
+    students: 'nam6');
 
 final _course7 = Course(
-    imageUrl: 'assets/course3.jpg',
-    name: 'name7'.tr,
+    imageUrl: 'assets/joints.png',
+    name: 'name7',
     time: 17,
     corurl: 'https://www.youtube.com/watch?v=RJ8kQPSug0U',
-    students: 'nam7'.tr);
+    students: 'nam7');
 
 final _course8 = Course(
-    imageUrl: 'assets/course3.jpg',
-    name: 'name8'.tr,
+    imageUrl: 'assets/stress.png',
+    name: 'name8',
     time: 28,
     corurl: 'https://www.youtube.com/watch?v=hJbRpHZr_d0',
-    students: 'nam8'.tr);
+    students: 'nam8');
 
 final _course9 = Course(
-    imageUrl: 'assets/course3.jpg',
-    name: 'name9'.tr,
+    imageUrl: 'assets/power.png',
+    name: 'name9',
     time: 39,
     corurl: 'https://www.youtube.com/watch?v=e4TKqJ_LwmM',
-    students: 'nam9'.tr);
+    students: 'nam9');
 
 final List<Course> courses = [
   _course1,

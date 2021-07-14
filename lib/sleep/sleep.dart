@@ -4,6 +4,7 @@ import 'package:flutter_meditation/open.dart';
 import 'package:flutter_meditation/yoga/yoga.dart';
 import 'package:get/get.dart';
 
+import '../colorsfile.dart';
 import '../sidebar.dart';
 import 'meditation_screen.dart';
 
@@ -49,7 +50,7 @@ class _NavbarState extends State<NavBar> {
             child: Container(
               height: 60.0,
               width: MediaQuery.of(context).size.width,
-              color: Color(0xff1e1e1e),
+              color: o1,
             ),
           ),
         ),
@@ -60,21 +61,21 @@ class _NavbarState extends State<NavBar> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               NavOne(
-                icon: Icons.bubble_chart,
+                icon: Icons.device_hub_sharp,
                 active: false,
               ),
               SizedBox(
                 width: 1.0,
               ),
               NavTwo(
-                icon: Icons.landscape,
+                icon: Icons.donut_small_rounded,
                 active: false,
               ),
               SizedBox(
                 width: 1.0,
               ),
               NavThree(
-                icon: Icons.brightness_3,
+                icon: Icons.fiber_smart_record_rounded,
                 active: true,
               ),
             ],
@@ -89,7 +90,7 @@ class _NavbarState extends State<NavBar> {
               Text(
                 'nav1'.tr,
                 style: TextStyle(
-                  color: Colors.white70,
+                  color: kActiveIconColor,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -99,7 +100,7 @@ class _NavbarState extends State<NavBar> {
               Text(
                 'nav2'.tr,
                 style: TextStyle(
-                  color: Colors.white70,
+                  color: kActiveIconColor,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -109,7 +110,7 @@ class _NavbarState extends State<NavBar> {
               Text(
                 'nav3'.tr,
                 style: TextStyle(
-                  color: Colors.white70,
+                  color: kActiveIconColor,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -155,13 +156,13 @@ class NavOne extends StatelessWidget {
       },
       child: CircleAvatar(
         radius: 25.0,
-        backgroundColor: Color(0xff1e1e1e),
+        backgroundColor: o1,
         child: CircleAvatar(
           radius: 25.0,
-          backgroundColor: active ? Colors.grey.shade100 : Colors.transparent,
+          backgroundColor: active ? kActiveIconColor : o1,
           child: Icon(
             icon,
-            color: active ? Colors.black87 : Colors.white,
+            color: active ? o1 : kActiveIconColor,
           ),
         ),
       ),
@@ -203,13 +204,13 @@ class NavTwo extends StatelessWidget {
       },
       child: CircleAvatar(
         radius: 25.0,
-        backgroundColor: Color(0xff1e1e1e),
+        backgroundColor: o1,
         child: CircleAvatar(
           radius: 25.0,
-          backgroundColor: active ? Colors.grey.shade100 : Colors.transparent,
+          backgroundColor: active ? kActiveIconColor : o1,
           child: Icon(
             icon,
-            color: active ? Colors.black87 : Colors.white,
+            color: active ? o1 : kActiveIconColor,
           ),
         ),
       ),
@@ -251,13 +252,13 @@ class NavThree extends StatelessWidget {
       },
       child: CircleAvatar(
         radius: 25.0,
-        backgroundColor: Colors.white,
+        backgroundColor: kActiveIconColor,
         child: CircleAvatar(
           radius: 25.0,
-          backgroundColor: active ? Colors.grey.shade100 : Colors.transparent,
+          backgroundColor: active ? kActiveIconColor : o1,
           child: Icon(
             icon,
-            color: active ? Colors.black87 : Colors.white,
+            color: active ? o1 : kActiveIconColor,
           ),
         ),
       ),

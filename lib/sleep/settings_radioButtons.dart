@@ -1,5 +1,6 @@
 import 'package:chips_choice/chips_choice.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_meditation/colorsfile.dart';
 import 'package:flutter_meditation/sleep/provider/meditation_provider.dart';
 import 'package:flutter_meditation/sleep/sound_details.dart';
 import 'package:provider/provider.dart';
@@ -64,7 +65,7 @@ class _SettingRadioButtonsState extends State<SettingRadioButtons> {
         barrierDismissible: false,
         builder: (BuildContext _) {
           return AlertDialog(
-            backgroundColor: Colors.white,
+            backgroundColor: o1,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(13),
             ),
@@ -72,9 +73,9 @@ class _SettingRadioButtonsState extends State<SettingRadioButtons> {
               text: text,
             ),
             content: Text(
-              'Confirm Selected ?',
+              'Confirm?',
               style: Theme.of(context).textTheme.headline6.copyWith(
-                    color: Colors.blue,
+                    color: kActiveIconColor,
                     fontSize: widget.width * 0.06,
                     fontWeight: FontWeight.bold,
                   ),
@@ -97,11 +98,11 @@ class _SettingRadioButtonsState extends State<SettingRadioButtons> {
                     provider.isChipSelected = false;
                   });
                 },
-                splashColor: Colors.blue[200],
+                splashColor: o1,
                 child: Text(
                   'NO',
                   style: Theme.of(context).textTheme.bodyText1.copyWith(
-                        color: Colors.blue[300],
+                        color: kActiveIconColor,
                         fontSize: widget.width * 0.04,
                         fontWeight: FontWeight.bold,
                       ),
@@ -125,14 +126,14 @@ class _SettingRadioButtonsState extends State<SettingRadioButtons> {
                     });
                   }
                 },
-                color: Colors.blue,
+                color: kActiveIconColor,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(3),
                 ),
                 child: Text(
                   'YES',
                   style: Theme.of(context).textTheme.bodyText1.copyWith(
-                        color: Colors.white,
+                        color: o2,
                         fontSize: widget.width * 0.04,
                         fontWeight: FontWeight.bold,
                       ),
@@ -149,7 +150,7 @@ class _SettingRadioButtonsState extends State<SettingRadioButtons> {
     var provider = Provider.of<MeditationProvider>(context, listen: false);
     return Theme(
       data: Theme.of(context).copyWith(
-        unselectedWidgetColor: Colors.white70,
+        unselectedWidgetColor: kActiveIconColor,
       ),
       child: Column(
         children: [
@@ -163,27 +164,29 @@ class _SettingRadioButtonsState extends State<SettingRadioButtons> {
             title: Text(
               'Guided',
               style: Theme.of(context).textTheme.subtitle1.copyWith(
-                    fontSize: widget.width * 0.048,
-                    color: Colors.grey[50],
+                    fontSize: widget.width * 0.08,
+                    color: kActiveIconColor,
                     fontWeight: FontWeight.bold,
+                    fontFamily: 'Loto',
                   ),
             ),
             subtitle: Text(
               'Teacher and Music',
               style: Theme.of(context).textTheme.overline.copyWith(
-                    fontSize: widget.width * 0.035,
-                    color: Colors.grey[100],
+                    fontSize: widget.width * 0.05,
+                    color: sleep,
+                    fontFamily: 'Loto',
                   ),
             ),
             secondary: Text(
-              provider.value == 1 ? provider.chipsTxt : '-',
+              provider.value == 1 ? provider.chipsTxt : '--',
               style: Theme.of(context).textTheme.bodyText1.copyWith(
-                    fontSize: widget.width * 0.028,
-                    color: Colors.grey[200],
+                    fontSize: widget.width * 0.04,
+                    color: kActiveIconColor,
                     fontWeight: FontWeight.bold,
                   ),
             ),
-            activeColor: Colors.white70,
+            activeColor: kActiveIconColor,
           ),
           RadioListTile(
             value: 2,
@@ -195,27 +198,29 @@ class _SettingRadioButtonsState extends State<SettingRadioButtons> {
             title: Text(
               'Unguided',
               style: Theme.of(context).textTheme.subtitle1.copyWith(
-                    fontSize: widget.width * 0.048,
-                    color: Colors.grey[50],
+                    fontSize: widget.width * 0.08,
+                    color: kActiveIconColor,
                     fontWeight: FontWeight.bold,
+                    fontFamily: 'Loto',
                   ),
             ),
             subtitle: Text(
               'Only Music',
               style: Theme.of(context).textTheme.overline.copyWith(
-                    fontSize: widget.width * 0.035,
-                    color: Colors.grey[100],
+                    fontSize: widget.width * 0.05,
+                    color: sleep,
+                    fontFamily: 'Loto',
                   ),
             ),
             secondary: Text(
-              provider.value == 2 ? provider.chipsT2 : '-',
+              provider.value == 2 ? provider.chipsT2 : '--',
               style: Theme.of(context).textTheme.bodyText1.copyWith(
-                    fontSize: widget.width * 0.028,
-                    color: Colors.grey[200],
+                    fontSize: widget.width * 0.04,
+                    color: kActiveIconColor,
                     fontWeight: FontWeight.bold,
                   ),
             ),
-            activeColor: Colors.white70,
+            activeColor: kActiveIconColor,
           ),
           RadioListTile(
             value: 3,
@@ -227,21 +232,22 @@ class _SettingRadioButtonsState extends State<SettingRadioButtons> {
             title: Text(
               'Timer Only',
               style: Theme.of(context).textTheme.subtitle1.copyWith(
-                    fontSize: widget.width * 0.048,
-                    color: Colors.grey[50],
+                    fontSize: widget.width * 0.08,
+                    color: kActiveIconColor,
                     fontWeight: FontWeight.bold,
+                    fontFamily: 'Loto',
                   ),
             ),
             subtitle: Text(''),
             secondary: Text(
-              provider.value == 3 ? provider.chipsT3 : '-',
+              provider.value == 3 ? provider.chipsT3 : '--',
               style: Theme.of(context).textTheme.bodyText1.copyWith(
-                    fontSize: widget.width * 0.028,
-                    color: Colors.grey[200],
+                    fontSize: widget.width * 0.04,
+                    color: kActiveIconColor,
                     fontWeight: FontWeight.bold,
                   ),
             ),
-            activeColor: Colors.white70,
+            activeColor: kActiveIconColor,
           ),
         ],
       ),
@@ -263,7 +269,7 @@ class _AlertContentState extends State<AlertContent> {
   Widget build(BuildContext context) {
     var provider = Provider.of<MeditationProvider>(context, listen: false);
     return Card(
-      color: Colors.blue[50],
+      color: o2,
       elevation: 1,
       margin: EdgeInsets.all(1),
       clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -274,13 +280,13 @@ class _AlertContentState extends State<AlertContent> {
           Container(
             width: double.infinity,
             padding: EdgeInsets.all(5),
-            color: Colors.blue.withOpacity(0.9),
+            color: kActiveIconColor,
             child: Center(
               child: Text(
                 widget.text,
                 style: Theme.of(context).textTheme.bodyText1.copyWith(
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: o2,
                     ),
               ),
             ),
@@ -320,18 +326,18 @@ class _AlertContentState extends State<AlertContent> {
               wrapped: true,
               choiceStyle: C2ChoiceStyle(
                 labelStyle: Theme.of(context).textTheme.bodyText1.copyWith(
-                      color: Colors.grey[600],
+                      color: kActiveIconColor,
                     ),
-                color: Colors.grey[700],
+                color: kActiveIconColor,
                 borderRadius: BorderRadius.all(
                   Radius.circular(5),
                 ),
               ),
               choiceActiveStyle: C2ChoiceStyle(
-                color: Colors.blue,
+                color: kActiveIconColor,
                 labelStyle: Theme.of(context).textTheme.bodyText1.copyWith(
                       fontWeight: FontWeight.bold,
-                      color: Colors.grey[600],
+                      color: kActiveIconColor,
                     ),
               ),
             ),

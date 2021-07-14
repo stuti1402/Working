@@ -93,7 +93,7 @@ class _IntroPageState extends State<IntroPage> {
                   ? _displayText(list[index].text)
                   : _displayImage(list[index].id),
               SizedBox(
-                height: 25,
+                height: 35,
               ),
               index == 1
                   ? _displayImage(list[index].id)

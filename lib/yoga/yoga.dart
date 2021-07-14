@@ -54,7 +54,7 @@ class _ScreenState extends State<Screen> {
       clr = kTextColor;
     } else if ((timeNow > 12) && (timeNow <= 16)) {
       message = 'afternoon'.tr;
-      imageName = 'afternoon.jpg';
+      imageName = 'afternoon.png';
       clr = Color(0xFF222B45);
     } else if ((timeNow > 16) && (timeNow < 20)) {
       message = 'evng'.tr;
@@ -93,7 +93,7 @@ class _ScreenState extends State<Screen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 20,
+                        horizontal: 10,
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
@@ -106,7 +106,7 @@ class _ScreenState extends State<Screen> {
                                 fontWeight: FontWeight.w800,
                                 fontFamily: 'Montserrat'),
                           ),
-                          SizedBox(width: 5),
+                          SizedBox(width: 3),
                           Image.asset(
                             "assets/hi.gif",
                             height: size.height * 0.04,
@@ -117,7 +117,7 @@ class _ScreenState extends State<Screen> {
                     SizedBox(height: 10),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 20,
+                        horizontal: 10,
                       ),
                       child: Text(
                         'sub'.tr,
@@ -333,7 +333,7 @@ class _Bottom extends State<Bottom> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            course.name,
+                            course.name.tr,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 14,
@@ -360,7 +360,7 @@ class _Bottom extends State<Bottom> {
                                 width: size.width * 0.02,
                               ),
                               Text(
-                                course.students,
+                                course.students.tr,
                                 style: TextStyle(
                                   color: black.withOpacity(0.5),
                                 ),
@@ -403,7 +403,7 @@ class _Bottom extends State<Bottom> {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
+    return SafeArea(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -7,15 +7,18 @@
 
 import 'dart:ui';
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_meditation/colorsfile.dart';
 import 'package:flutter_meditation/sleep/globals.dart';
 import 'package:flutter_meditation/sleep/meditation_animation_screen.dart';
 import 'package:flutter_meditation/sleep/provider/meditation_provider.dart';
 import 'package:flutter_meditation/sleep/settings_radioButtons.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class MeditationScreen extends StatefulWidget {
   @override
@@ -45,54 +48,21 @@ class _MeditationScreenState extends State<MeditationScreen> {
     provider = Provider.of(context, listen: false);
   }
 
-  // Legacy code
-
-  // void showMessage(BuildContext context) {
-  //   Flushbar(
-  //     padding: EdgeInsets.all(10),
-  //     borderRadius: 8,
-  //     backgroundGradient: LinearGradient(
-  //       colors: [
-  //         Colors.blue[400],
-  //         Colors.blue[800],
-  //       ],
-  //     ),
-  //     boxShadows: [
-  //       BoxShadow(
-  //         color: Colors.black45,
-  //         offset: Offset(3, 3),
-  //         blurRadius: 3,
-  //       ),
-  //     ],
-  //     duration: Duration(seconds: 5),
-  //     //dismissDirection: FlushbarDismissDirection.HORIZONTAL,
-  //     forwardAnimationCurve: Curves.fastLinearToSlowEaseIn,
-  //     title: 'A Gentle Remainder',
-  //     messageText: Text(
-  //       'Please don\'t go back in the middle of the meditation session. It will clear all the saved infomation.',
-  //       style: Theme.of(context).textTheme.bodyText1.copyWith(
-  //             color: Colors.grey[50],
-  //             fontSize: Global.screenWidth * 0.035,
-  //           ),
-  //     ),
-  //   ).show(context);
-  // }
-
   Future<bool> songExist() {
     return showDialog(
         context: context,
         builder: (BuildContext ctx) {
           return AlertDialog(
-            backgroundColor: Colors.white,
+            backgroundColor: o2,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(13),
             ),
             title: Text(
-              'Please choose something from settings ?',
+              'setting'.tr,
               style: Theme.of(context).textTheme.caption.copyWith(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
-                    color: Colors.grey[700],
+                    color: kActiveIconColor,
                   ),
             ),
             actions: [
@@ -101,9 +71,9 @@ class _MeditationScreenState extends State<MeditationScreen> {
                   Navigator.of(context).pop(false);
                 },
                 child: Text(
-                  'cancel'.toUpperCase(),
+                  'cancel'.tr,
                   style: Theme.of(context).textTheme.overline.copyWith(
-                        color: Colors.blue[300],
+                        color: kActiveIconColor,
                         fontWeight: FontWeight.bold,
                         fontSize: Global.screenWidth * 0.035,
                       ),
@@ -117,9 +87,9 @@ class _MeditationScreenState extends State<MeditationScreen> {
                   Navigator.of(context).pop(true);
                 },
                 child: Text(
-                  'okay'.toUpperCase(),
+                  'okay'.tr,
                   style: Theme.of(context).textTheme.overline.copyWith(
-                        color: Colors.blue[300],
+                        color: kActiveIconColor,
                         fontSize: Global.screenWidth * 0.035,
                         fontWeight: FontWeight.bold,
                       ),
@@ -132,127 +102,99 @@ class _MeditationScreenState extends State<MeditationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     Global().init(
         context); // This is self defined class which help us to pass MediaQuery ScreenSize
+
     return Scaffold(
       body: Stack(
-        children: [
-          Container(
-            height: Global.screenHeight,
-            width: Global.screenWidth,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Colors.blue[400],
-                  Colors.blue[800],
-                ],
-              ),
-            ),
-          ),
-          /*Align(
-            alignment: Alignment.topCenter,
-            child: ClipPath(
-              clipper: ImageClipper(),
-              child: Image.asset(
-                'assets/dessert.jpg',
-                fit: BoxFit.cover,
-                width: MediaQuery.of(context).size.width,
-                //color: Color(0x99000000),
-                //colorBlendMode: BlendMode.darken,
-                height: MediaQuery.of(context).size.height / 2,
-              ),
-            ),
-          ),*/
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height / 2.5,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: new AssetImage('assets/dessert.jpg'),
-                fit: BoxFit.fill,
-              ),
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(120.0),
-              ),
-              /*gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [Color(0xFFf45d27), Color(0xFFf5851f)],*/
-            ),
-            //borderRadius:
-            //BorderRadius.only(bottomLeft: Radius.circular(150))),
-          ),
-          BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-            // A container that expands to the full available space.
+        children: <Widget>[
+          SafeArea(
             child: Container(
-              alignment: Alignment.center,
-              //color: Colors.transparent,
-            ),
-          ),
-          Positioned(
-            top: 40,
-            left: 20,
-            child: Text(
-              'CalmU',
-              style: Theme.of(context).textTheme.headline5.copyWith(
-                    color: Colors.grey[50],
-                    fontWeight: FontWeight.bold,
-                  ),
-            ),
-            // child: GestureDetector(
-            //   onTap: closingProcesses,
-            //   child: Icon(
-            //     Icons.close,
-            //     size: 30,
-            //     color: Theme.of(context).iconTheme.color,
-            //   ),
-            // ),
-          ),
-          Positioned(
-            top: 40,
-            right: 20,
-            child: InkWell(
-              splashColor: Colors.grey,
-              onTap: () {
-                openSettings(context);
-              },
-              child: Icon(
-                Icons.settings,
-                size: 30,
-                color: Colors.white,
+              width: MediaQuery.of(context).size.width,
+              height: size.height * .30,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: new AssetImage('assets/AB.png'),
+                  fit: BoxFit.fill,
+                ),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(50),
+                  bottomRight: Radius.circular(50),
+                ),
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 160.0),
-            child: Align(
-              alignment: Alignment.topCenter,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20,
+              ),
+              child: SingleChildScrollView(
                 child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    SizedBox(
+                      height: size.height * 0.05,
+                    ),
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 70.0, left: 30),
-                      child: Text(
-                        'Find a Comfortable place to Seat..',
-                        style: Theme.of(context).textTheme.headline6.copyWith(
-                            color: Colors.grey[200],
-                            fontSize: Global.screenWidth * 0.08,
-                            letterSpacing: 1,
-                            fontWeight: FontWeight.bold),
+                      padding: const EdgeInsets.fromLTRB(290, 1, 5, 0),
+                      child: InkWell(
+                        splashColor: Colors.grey,
+                        onTap: () {
+                          openSettings(context);
+                        },
+                        child: Icon(
+                          Icons.settings,
+                          size: 25,
+                          color: sl,
+                        ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 50.0, left: 20),
-                      child: Text(
-                        'The Aim is not to fight your mind but to acknowledge and embrace everything that\'s happening around you and let go.',
-                        style: Theme.of(context).textTheme.bodyText1.copyWith(
-                              color: Colors.white.withOpacity(0.8),
-                              fontSize: Global.screenWidth * 0.05,
-                            ),
+                      padding: const EdgeInsets.fromLTRB(0, 10, 0, 15),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.play_arrow_rounded,
+                            color: sl,
+                          ),
+                          TyperAnimatedTextKit(
+                            isRepeatingAnimation: true,
+                            speed: Duration(milliseconds: 50),
+                            textStyle: GoogleFonts.montserrat(
+                                fontSize: 22,
+                                color: sl,
+                                fontWeight: FontWeight.w600),
+                            text: [
+                              "t1".tr,
+                              "t2".tr,
+                              "t3".tr,
+                              "t4".tr,
+                              "t5".tr,
+                              "t6".tr,
+                              "t7".tr,
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 30,
+                      ),
+                      child: SizedBox(
+                        width: size.width * .8,
+                        child: Text(
+                          "subt".tr,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            color: sleep,
+                            fontFamily: 'Montserrat',
+                            fontSize: 15,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -260,42 +202,74 @@ class _MeditationScreenState extends State<MeditationScreen> {
               ),
             ),
           ),
-          Positioned(
-            left: 30,
-            right: 30,
-            top: 500,
+          SafeArea(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 60.0),
-              child: Ink(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Colors.blue[100],
-                        Colors.blue[500],
-                      ],
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
+              padding: EdgeInsets.only(top: 180, left: 20, right: 20),
+              child: GridView.count(
+                crossAxisCount: 2,
+                padding: EdgeInsets.all(10),
+                childAspectRatio: 0.9,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                children: <Widget>[
+                  myGridItems(
+                    "gr1".tr,
+                    "1.",
+                    "https://www.mcislanguages.com/website/wp-content/uploads/iStock-1161561165.jpg",
+                    kTextColor,
+                    o3,
+                  ),
+                  myGridItems(
+                    "gr2".tr,
+                    "2.",
+                    "https://media.istockphoto.com/vectors/breathing-exersice-vector-id1126240522?k=6&m=1126240522&s=612x612&w=0&h=v458UuBiFBJPFMgLuhkrieJVsSEP-v1qMy0WKtuv40Y=",
+                    kTextColor,
+                    o3,
+                  ),
+                  myGridItems(
+                    "gr3".tr,
+                    "3.",
+                    "https://www.royalcornwall.nhs.uk/wp-content/uploads/2020/07/mindfulness.png",
+                    kTextColor,
+                    o3,
+                  ),
+                  myGridItems(
+                    "gr4".tr,
+                    "4.",
+                    "https://njmonthly.com/wp-content/uploads/cache/2017/01/hbarczyk_njmonthly_finalart2/3099178910.jpg",
+                    kTextColor,
+                    o3,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 40),
+          SafeArea(
+            child: Center(
+              child: Padding(
+                padding: EdgeInsets.only(
+                  top: 440,
+                ),
+                child: Ink(
+                  child: FlatButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(68.0),
+                    ),
+                    color: kActiveIconColor,
+                    onPressed: meditateProcesses,
+                    padding: EdgeInsets.fromLTRB(65, 15, 65, 15),
+                    child: Text(
+                      "med".tr,
+                      style: TextStyle(
+                        color: o1,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 15.0,
+                      ),
                     ),
                   ),
-                  child: RaisedButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(68.0)),
-                    color: Colors.black54,
-                    onPressed: meditateProcesses,
-                    padding: EdgeInsets.symmetric(
-                      vertical: 18,
-                    ),
-                    child: Text(
-                      "Meditate".toUpperCase(),
-                      style: TextStyle(
-                          //color: Colors.white.withOpacity(0.85),
-                          color: Colors.grey[50],
-                          fontSize: Global.screenWidth * 0.035,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 5,
-                          fontStyle: FontStyle.normal),
-                    ),
-                  )),
+                ),
+              ),
             ),
           ),
         ],
@@ -331,28 +305,72 @@ class _MeditationScreenState extends State<MeditationScreen> {
     provider.meditaionsPressed = true;
   }
 
-// Legacy code
-// void closingProcesses() {
-//   MeditationProvider provider = Provider.of(context, listen: false);
-//   if (isDisposed) {
-//     Navigator.pop(context);
-//     provider.audioPlayer.stop();
-//     provider.sngTimer.cancel();
-//     provider.isSongSelected = false;
-
-//     //print('isSelected (c1): $isSelected');
-//   } else {
-//     Navigator.pop(context);
-//     provider.isSongSelected = false;
-//     //print('isSelected (c): $isSelected');
-//   }
-//   // if (provider.meditaionsPressed && isDisposed) {
-//   //   showMessage(context);
-//   // }
-//   provider.value = 0;
-
-//   // for showing the selected radio button
-// }
+  Widget myGridItems(String gridName, String gridNo, String gridimage,
+      var color1, var color2) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(24),
+        gradient: new LinearGradient(
+          colors: [
+            color1,
+            color2,
+          ],
+          begin: Alignment.centerLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
+      child: Stack(
+        children: <Widget>[
+          Opacity(
+            opacity: 0.4,
+            child: Container(
+              decoration: new BoxDecoration(
+                borderRadius: BorderRadius.circular(24),
+                image: DecorationImage(
+                  image: new NetworkImage(gridimage),
+                  fit: BoxFit.fill,
+                ),
+              ),
+            ),
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      child: Text(
+                        gridNo,
+                        style: TextStyle(
+                            color: white,
+                            fontSize: 22,
+                            fontWeight: FontWeight.w900),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.only(left: 16.0),
+                child: Text(
+                  gridName,
+                  style: TextStyle(
+                    color: white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Montserrat',
+                  ),
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
 }
 
 class ImageClipper extends CustomClipper<Path> {
@@ -392,11 +410,9 @@ class _SettingsPageState extends State<SettingsPage> {
           height: Global.screenHeight,
           width: Global.screenWidth,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Colors.blue[400],
-                Colors.blue[800],
-              ],
+            image: DecorationImage(
+              image: AssetImage('assets/setting.png'),
+              fit: BoxFit.fill,
             ),
           ),
         ),
@@ -416,10 +432,10 @@ class _SettingsPageState extends State<SettingsPage> {
             title: Text(
               'Settings',
               style: Theme.of(context).textTheme.headline6.copyWith(
-                  color: Colors.white,
-                  fontSize: Global.screenWidth * 0.04,
-                  //letterSpacing: 1,
-                  fontStyle: FontStyle.normal),
+                    color: kActiveIconColor,
+                    fontSize: Global.screenWidth * 0.07,
+                    fontFamily: 'Montserrat',
+                  ),
             ),
             centerTitle: true,
           ),
@@ -455,65 +471,11 @@ class _SettingsPageState extends State<SettingsPage> {
                   width: Global.screenWidth * 0.8,
                 ),
                 SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Text(
-                        'Feedback'.toUpperCase(),
-                        style: Theme.of(context).textTheme.bodyText1.copyWith(
-                              color: Colors.white70,
-                              fontSize: Global.screenWidth * 0.032,
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                  ],
-                ),
-                Divider(
-                  thickness: 0.3,
-                  color: Colors.white70,
-                ),
-                ListTile(
-                  title: Text(
-                    'Have some feedback?',
-                    style: Theme.of(context).textTheme.subtitle1.copyWith(
-                          fontSize: Global.screenWidth * 0.048,
-                          color: Colors.grey[50],
-                          fontWeight: FontWeight.bold,
-                        ),
-                  ),
-                  trailing: RaisedButton(
-                    color: Colors.grey[100],
-                    onPressed: getFeedback,
-                    child: Text(
-                      'Tell us!',
-                      style: Theme.of(context).textTheme.button.copyWith(
-                            //fontSize: Global.screenWidth * 0.048,
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold,
-                          ),
-                    ),
-                  ),
-                ),
               ],
             ),
           ),
         ),
       ],
     );
-  }
-
-  void getFeedback() async {
-    const url = 'https://forms.gle/kydxayfPycLYzVos7';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
   }
 }

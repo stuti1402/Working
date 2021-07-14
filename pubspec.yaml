@@ -46,6 +46,8 @@ dependencies:
   scroll_snap_list: ^0.6.0
   google_fonts: ^1.1.1
 
+  animated_text_kit: ^3.1.2
+
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +72,10 @@ flutter:
     - assets/3.png
 
   fonts:
+    - family: Agustina
+      fonts:
+        - asset: assets/fonts/agustina.otf
+
     - family: Lato
       fonts:
         - asset: assets/fonts/Lato-Light.ttf
@@ -78,6 +84,7 @@ flutter:
           weight: 400
         - asset: assets/fonts/Lato-Bold.ttf
           weight: 600
+
     - family: Montserrat
       fonts:
         - asset: assets/fonts/Montserrat-Light.ttf

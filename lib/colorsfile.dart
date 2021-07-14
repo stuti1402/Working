@@ -16,6 +16,12 @@ const Color blueGrey = Colors.blueGrey;
 const kBackgroundColor = Color(0xFFF8F8F8);
 const kActiveIconColor = Color(0xFFE68342);
 const kTextColor = Color(0xFF222B45);
+const sleep = Color(0xFF415387);
+const sl = Color(0xFF790404);
+const o1 = Color(0xFFFCE3D7);
+const o2 = Color(0xFFFAF6F3);
+const o3 = Color(0xFFF5BC98);
+
 const kBlueLightColor = Color(0xFFC7B8F5);
 const kBlueColor = Color(0xFF817DC0);
 const mi = Color(0xFFE2DFF1);
